@@ -1,0 +1,18 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'lib/templates/**/*'
+    - 'lib/**/*'
+    - 'spec/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'bin/hooks/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

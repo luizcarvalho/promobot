@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  resume: MyString
+  origin: MyString
+  url: MyString
+  text: MyText
+  sended_at: 2016-12-08 15:29:08
+  promoter: MyString
+
+two:
+  title: MyString
+  resume: MyString
+  origin: MyString
+  url: MyString
+  text: MyText
+  sended_at: 2016-12-08 15:29:08
+  promoter: MyString
