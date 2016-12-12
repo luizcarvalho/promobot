@@ -9,6 +9,7 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'nokogumbo'
 gem 'nokogiri'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'pry'
