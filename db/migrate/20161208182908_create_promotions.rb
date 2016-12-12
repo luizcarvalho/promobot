@@ -11,6 +11,7 @@ class CreatePromotions < ActiveRecord::Migration[5.0]
       t.string :identifier
       t.string :promoter
       t.text :text
+      t.integer :relevance
       t.string :resume
       t.datetime :sended_at
 
