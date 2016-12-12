@@ -21,5 +21,13 @@ module Apromus
     config.enable_dependency_loading = true
     config.autoload_paths << Rails.root.join('app/services')
     config.api_only = true
+
+    config.generators do |g|
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.view_specs false
+      g.helper_specs false
+      g.integration_tool :rspec
+    end
   end
 end
