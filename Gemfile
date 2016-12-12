@@ -7,11 +7,13 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-gem 'pry'
 gem 'nokogumbo'
 gem 'nokogiri'
 
 group :development, :test do
+  gem 'pry'
+  gem 'rspec'
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
 end
 

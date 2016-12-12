@@ -12,13 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20161208182908) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "promotions", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
+    t.string   "value"
+    t.string   "discount"
+    t.string   "thumb"
+    t.string   "image"
     t.string   "origin"
     t.string   "identifier"
     t.string   "promoter"
     t.text     "text"
+    t.integer  "relevance"
     t.string   "resume"
     t.datetime "sended_at"
     t.datetime "created_at", null: false
