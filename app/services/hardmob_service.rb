@@ -11,22 +11,18 @@ class HardmobService < ApplicationService
     html.css('#threads a.title')
   end
 
-  def convert_link(link_node)
-    { href: link_node['href'], text: link_node.text }
+  def fetch_post(link)
+    topic = Nokogiri.HTML5(open(link))
+    topic.css('li.postbitlegacy').first
   end
 
-  def update_promotions
+  def fetch_lasts_promotions
     @promotions = fetch_promotion_links.map do |link|
       link = convert_link(link)
       puts link
       post = fetch_post(link[:href])
       build_and_create_promotion(link, post)
     end
-  end
-
-  def fetch_post(link)
-    topic = Nokogiri.HTML5(open(link))
-    topic.css('li.postbitlegacy').first
   end
 
   def build_promotion(link, post)
@@ -47,6 +43,10 @@ class HardmobService < ApplicationService
   end
 
   private
+
+  def convert_link(link_node)
+    { href: link_node['href'], text: link_node.text }
+  end
 
   # R$ 1 / R$ 1,00 / R$ 1.000,00 / R$ 1.000
   # R$1 /  R$1,00 / R$1.000,00 / R$1.000
