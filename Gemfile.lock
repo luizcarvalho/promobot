@@ -44,12 +44,21 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
+    facebook-messenger (0.11.1)
+      httparty (~> 0.13, >= 0.13.7)
+      rack (>= 1.6.4)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -64,6 +73,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    multi_xml (0.6.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -153,6 +163,8 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  dotenv-rails
+  facebook-messenger
   factory_girl
   listen (~> 3.0.5)
   nokogiri
@@ -167,3 +179,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+
+BUNDLED WITH
+   1.12.5
