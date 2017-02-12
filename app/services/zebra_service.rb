@@ -1,6 +1,5 @@
-class TonolucroService < ApplicationService
-  CORE_URL = 'https://www.tonolucro.com.br'.freeze
-  BASE_URL = "#{CORE_URL}/palmas".freeze
+class ZebraService < ApplicationService
+  BASE_URL = 'https://www.zebraurbana.com.br'.freeze
 
   def initialize(model)
     @promotions = nil
@@ -9,20 +8,20 @@ class TonolucroService < ApplicationService
 
   def fetch_promotion_links
     html = Nokogiri::HTML(open(BASE_URL))
-    html.css('.bl-extra-top-tit > a')
+    html.css('a.product')
   end
 
   def fetch_promotion(link)
     promotion = Nokogiri.HTML5(open(link))
-    promotion.css('.content-left-back').first
+    promotion.css('.product').first
   end
 
   def fetch_lasts_promotions
     @promotions = fetch_promotion_links.map do |link|
-      link = convert_link(link)
-      puts link
-      promotion = fetch_promotion(link[:href])
-      build_and_create_promotion(link, promotion)
+      link_hash = convert_link(link)
+      puts link_hash[:href]
+      promotion = fetch_promotion(link_hash[:href])
+      build_and_create_promotion(link_hash, promotion)
     end
   end
 
@@ -31,7 +30,7 @@ class TonolucroService < ApplicationService
       title: extract_title(promotion),
       url: link[:href],
       text: format_promotion_content(promotion),
-      origin: 'tonolucro', promoter: 'tonolucro',
+      origin: 'zebraurbana', promoter: 'zebraurbana',
       value: extract_value(promotion),
       image: extract_image(promotion),
       identifier: extract_identifier(link[:href]),
@@ -46,39 +45,35 @@ class TonolucroService < ApplicationService
   private
 
   def convert_link(link_node)
-    { href: "#{CORE_URL}#{link_node['href']}", text: link_node.text }
+    { href: "#{BASE_URL}#{link_node['href']}", text: link_node.text }
   end
 
   def extract_title(promotion)
-    promotion.css('.oferta-titulo').text
+    promotion.css('header > h2').text.squeeze(' ').delete("\n")
   end
 
-  def extract_image_url(promotion)
-    promotion.css('.nivoSlider > img').first['src']
+  def extract_image(promotion)
+    partial_url = promotion.css('.carousel-inner > .item > img').first['src']
+    "https:#{partial_url}"
   end
 
   def extract_relevance(promotion)
-    promotion.css('.quantidade').text
-  end
-
-  def extract_image(image_link)
-    image_link = extract_image_url(image_link) unless image_link.is_a?(String)
-    "#{CORE_URL}#{image_link}"
+    promotion.css('p > span.text-danger').text&.to_i
   end
 
   def extract_value(promotion)
-    promotion.css('.vl').text
+    promotion.css('.price > .new').text[/\d+,\d+/]
   end
 
   def format_promotion_content(promotion)
-    promotion = promotion.css('.texto').text
+    promotion = promotion.css('.details').text
     promotion.delete!("\t")
-    promotion.gsub!('  ', ' ')
-    promotion.gsub!("\n\n", "\n")
+    promotion.squeeze!(' ')
+    promotion.squeeze!("\n")
     promotion
   end
 
   def extract_identifier(promotion_link)
-    promotion_link.match(%r{tonolucro.com.br\/(\d+)})[1]
+    promotion_link[/\d+$/]
   end
 end

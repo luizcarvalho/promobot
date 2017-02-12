@@ -10,8 +10,10 @@ gem 'puma', '~> 3.0'
 gem 'nokogumbo'
 gem 'nokogiri'
 gem 'rack-cors'
+gem 'facebook-messenger'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
