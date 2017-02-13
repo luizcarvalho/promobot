@@ -20,12 +20,6 @@ Dotenv::Railtie.load if Rails.env == 'development'
 
 module Promobot
   class Application < Rails::Application
-    config.middleware.insert_before 0, 'Rack::Cors' do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options, :delete, :put]
-      end
-    end
 
     config.enable_dependency_loading = true
     config.autoload_paths << Rails.root.join('app/services')
