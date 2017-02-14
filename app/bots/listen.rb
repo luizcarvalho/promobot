@@ -15,11 +15,13 @@ Bot.on :message do |message|
       },
       access_token: ENV['ACCESS_TOKEN']
     )
-  rescue
+  rescue Facebook::Messenger::Bot::RecipientNotFound
+    puts 'Erro com destinatário'
+  rescue StandardError => e
     Bot.deliver(
       {
         recipient: message.sender,
-        message: 'Eita, não entendi isso! Vamos tentar de novo! :D'
+        message: { text: 'Eita, não entendi isso! Vamos tentar de novo! :D' }
       },
       access_token: ENV['ACCESS_TOKEN']
     )
