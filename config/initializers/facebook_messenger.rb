@@ -6,7 +6,7 @@ unless Rails.env.production?
     bot_files.each { |file| require_dependency file }
   end
 
-  ActionDispatch::Callbacks.to_prepare do
+  ActiveSupport::Reloader.to_prepare do
     bots_reloader.execute_if_updated
   end
 
