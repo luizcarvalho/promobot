@@ -16,13 +16,14 @@ class HardmobService < ApplicationService
     topic.css('li.postbitlegacy').first
   end
 
-  def fetch_lasts_promotions
+  def fetch_and_save_all
     @promotions = fetch_promotion_links.map do |link|
       link = convert_link(link)
       puts link
       post = fetch_post(link[:href])
       build_and_create_promotion(link, post)
     end
+    promotions_not_found(self.class.to_s) if @promotions.empty?
   end
 
   def build_promotion(link, post)

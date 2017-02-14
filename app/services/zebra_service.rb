@@ -1,5 +1,6 @@
 class ZebraService < ApplicationService
   BASE_URL = 'https://www.zebraurbana.com.br'.freeze
+  PROMOTIONS_URL = "#{BASE_URL}/palmas".freeze
 
   def initialize(model)
     @promotions = nil
@@ -7,7 +8,7 @@ class ZebraService < ApplicationService
   end
 
   def fetch_promotion_links
-    html = Nokogiri::HTML(open(BASE_URL))
+    html = Nokogiri::HTML(open(PROMOTIONS_URL))
     html.css('a.product')
   end
 
@@ -16,13 +17,14 @@ class ZebraService < ApplicationService
     promotion.css('.product').first
   end
 
-  def fetch_lasts_promotions
+  def fetch_and_save_all
     @promotions = fetch_promotion_links.map do |link|
       link_hash = convert_link(link)
       puts link_hash[:href]
       promotion = fetch_promotion(link_hash[:href])
       build_and_create_promotion(link_hash, promotion)
     end
+    promotions_not_found(self.class.to_s) if @promotions.empty?
   end
 
   def build_promotion(link, promotion)
