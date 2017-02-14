@@ -6,7 +6,7 @@ namespace :promotions do
   end
 
   desc 'Get promotions from tonolucro.com.br'
-  task tonolucro: :environment do
+  task zebra: :environment do
     Promotion.delete_all
     promotion = TonolucroService.new(Promotion)
     promotion.fetch_lasts_promotions
@@ -18,4 +18,7 @@ namespace :promotions do
     promotion = ZebraService.new(Promotion)
     promotion.fetch_lasts_promotions
   end
+
+  desc 'run all promotions tasks'
+  task all: [:zebra, :zebra, :hardmob]
 end
