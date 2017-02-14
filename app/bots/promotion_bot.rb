@@ -12,11 +12,13 @@ class PromotionBot
   end
 
   def format_promotion_message(promotions)
+    elements = elements_generic(promotions)
+    return nothing_found_message if elements.empty?
     {
       'attachment': {
         'type': 'template',
         'payload': {
-          'template_type': 'generic', elements: elements_generic(promotions)
+          'template_type': 'generic', elements: elements
         }
       }
     }
@@ -43,6 +45,12 @@ class PromotionBot
       'type': 'web_url',
       'url': promotion.url,
       'title': 'Ver no site'
-    } 
+    }
+  end
+
+  private
+
+  def nothing_found_message
+    { text: "😥 Desculpe! não consegui achar nada. \n Já tentou buscar \"Delícia\" ou \"Comida\"? sim eu adoro comer :P" }
   end
 end
