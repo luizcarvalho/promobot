@@ -12,6 +12,7 @@ gem 'nokogiri'
 gem 'rack-cors'
 gem 'facebook-messenger'
 gem 'dotenv-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry'
