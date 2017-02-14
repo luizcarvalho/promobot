@@ -43,10 +43,18 @@ $(document).ready(function() {
         "ajax": '/promotions',
         "columns": [
             { "data": "id" },
-            { "data": "title" },
-            { "data": "url" },
+            { "data": "title",
+                    "render": function ( title, type, full, meta ) {
+                      return '<a href="'+full['url']+'">'+title+'</a>';
+                    }
+            },
+            { "data": "url", "visible": false },
             { "data": "value" },
-            { "data": "image" },
+            { "data": "image" ,
+                    "render": function ( image, type, full, meta ) {
+                      return '<img src="'+image+'" width="100px" height="100px"/>';
+                    }
+            },
             { "data": "origin" },
             { "data": "identifier" },
         ]
