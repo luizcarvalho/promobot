@@ -18,16 +18,7 @@ class ZebraService < ApplicationService
   end
 
   def build_promotion(link, promotion)
-    {
-      origin: 'zebraurbana', promoter: 'zebraurbana',
-      title: extract_title(promotion),
-      url: link[:href],
-      text: format_promotion_content(promotion),
-      value: extract_value(promotion),
-      image: extract_image(promotion),
-      identifier: extract_identifier(link[:href]),
-      relevance: extract_relevance(promotion)
-    }
+    basic_promotion_data(link, promotion).merge(origin: 'zebraurbana', promoter: 'zebraurbana')
   end
 
   def build_and_create_promotion(link, promotion)
