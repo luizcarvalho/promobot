@@ -28,10 +28,10 @@ class HardmobService < ApplicationService
 
   def build_promotion(link, post)
     {
+      origin: 'hardmob',
       title: link[:text],
       url: link[:href],
       text: format_post_content(post),
-      origin: 'hardmob',
       value: extract_value(link[:text]),
       thumb: '', image: '',
       identifier: extract_identifier(link[:href]),

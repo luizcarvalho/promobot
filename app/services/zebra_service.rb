@@ -29,10 +29,10 @@ class ZebraService < ApplicationService
 
   def build_promotion(link, promotion)
     {
+      origin: 'zebraurbana', promoter: 'zebraurbana',
       title: extract_title(promotion),
       url: link[:href],
       text: format_promotion_content(promotion),
-      origin: 'zebraurbana', promoter: 'zebraurbana',
       value: extract_value(promotion),
       image: extract_image(promotion),
       identifier: extract_identifier(link[:href]),

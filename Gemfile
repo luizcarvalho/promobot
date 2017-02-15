@@ -7,19 +7,19 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
 # Use Puma as the app server
 gem 'nokogiri'
-gem 'nokogumbo'
 gem 'dotenv-rails'
+gem 'nokogumbo'
 gem 'facebook-messenger'
 gem 'rack-cors'
-gem 'ransack'
 gem 'puma', '~> 3.0'
+gem 'ransack'
 
 group :development, :test do
-  gem 'pry'
   gem 'byebug', platform: :mri
+  gem 'pry'
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'factory_girl_rails'
+  gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
 end
 
@@ -30,8 +30,8 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
