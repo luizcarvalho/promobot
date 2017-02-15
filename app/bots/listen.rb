@@ -17,7 +17,7 @@ Bot.on :message do |message|
     )
   rescue Facebook::Messenger::Bot::RecipientNotFound
     puts 'Erro com destinatário'
-  rescue StandardError => e
+  rescue StandardError => _e
     Bot.deliver(
       {
         recipient: message.sender,

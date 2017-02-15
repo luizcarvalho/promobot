@@ -7,6 +7,7 @@ AllCops:
     - 'db/schema.rb'
     - 'db/migrate/*'
     - 'bin/hooks/**/*'
+    - 'bin/spring'
 
 Documentation:
   Enabled: false

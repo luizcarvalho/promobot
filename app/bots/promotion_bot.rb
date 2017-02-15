@@ -1,6 +1,5 @@
 class PromotionBot
-  def initialize
-  end
+  def initialize; end
 
   def search(term)
     return false if term.empty?
@@ -51,6 +50,9 @@ class PromotionBot
   private
 
   def nothing_found_message
-    { text: "😥 Desculpe! não consegui achar nada. \n Já tentou buscar \"Delícia\" ou \"Comida\"? sim eu adoro comer :P" }
+    {
+      text: "😥 Desculpe! não consegui achar nada.
+      \n Já tentou buscar \"Delícia\" ou \"Comida\"? sim eu adoro comer :P"
+    }
   end
 end

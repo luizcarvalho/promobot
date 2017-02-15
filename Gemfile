@@ -6,20 +6,20 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
-gem 'nokogumbo'
 gem 'nokogiri'
-gem 'rack-cors'
-gem 'facebook-messenger'
+gem 'nokogumbo'
+gem 'puma', '~> 3.0'
 gem 'dotenv-rails'
+gem 'facebook-messenger'
+gem 'rack-cors'
 gem 'ransack'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec'
-  gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails'
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'database_cleaner'
 end
 

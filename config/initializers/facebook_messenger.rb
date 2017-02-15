@@ -1,5 +1,5 @@
 unless Rails.env.production?
-  
+
   bot_files = Dir[Rails.root.join('app', 'bots', '**', '*.rb')]
 
   bots_reloader = ActiveSupport::FileUpdateChecker.new(bot_files) do
