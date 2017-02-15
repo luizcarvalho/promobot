@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/assets/style.css">
+<div id="container">
+  <h1>Promotions</h1>
+  <div class="table-responsive-vertical shadow-z-1">
+    <!-- Table starts here -->
+    <table id="table" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :title) %></th>
+          <th><%= sort_link(@q, :value) %></th>
+          <th><%= sort_link(@q, :image) %></th>
+          <th><%= sort_link(@q, :origin) %></th>
+          <th><%= sort_link(@q, :identifier) %></th>
+          <th><%= sort_link(@q, :text) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @promotions.each do |promotion| %>
+          <tr>
+            <th data-title="title"><%= link_to promotion.title, promotion.url %></th>
+            <th data-title="value"><%= promotion.value %></th>
+            <th data-title="image"><%= link_to image_tag(promotion.image, size: 50), promotion.image, target: '_blank' %></th>
+            <th data-title="origin"><%= promotion.origin %></th>
+            <th data-title="identifier"><%= promotion.identifier %></th>
+            <th data-title="text" class='tooltip'>
+              <%= truncate(promotion.text, length: 100) %>
+              <span class="tooltiptext"><%= promotion.text %></span>
+            </th>
+          </tr>
+        <% end  %>
+      </tbody>
+    </table>
+    <div>
+
+  </div>
+</div>

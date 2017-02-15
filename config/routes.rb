@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   resources :promotions
-  Rails.application.routes.draw do
-    mount Facebook::Messenger::Server, at: 'bots'
-  end
+  mount Facebook::Messenger::Server, at: 'bots'
 end

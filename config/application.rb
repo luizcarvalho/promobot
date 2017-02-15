@@ -20,6 +20,10 @@ Dotenv::Railtie.load if Rails.env == 'development'
 
 module Promobot
   class Application < Rails::Application
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Cookies
+
     config.enable_dependency_loading = true
     config.autoload_paths << Rails.root.join('app/services')
     config.api_only = true

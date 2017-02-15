@@ -13,6 +13,7 @@ gem 'facebook-messenger'
 gem 'rack-cors'
 gem 'puma', '~> 3.0'
 gem 'ransack'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
