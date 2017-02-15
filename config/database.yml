@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  database: promobot_development
+  pool: 5
+  username: postgres
+  password: postgres
+
+
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  database: promobot_test
+  pool: 5
+  username: postgres
+  password: postgres
+
+
+production:
+  adapter: postgresql
+  host: 10.60.1.49
+  encoding: utf8
+  database: promobot_production
+  pool: 5
+  username: postgres
+  password: postgres
+  min_messages: WARNING
