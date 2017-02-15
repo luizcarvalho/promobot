@@ -11,20 +11,11 @@ class HardmobService < ApplicationService
     html.css('#threads a.title')
   end
 
-  def fetch_post(link)
+  def fetch_promotion(link)
     topic = Nokogiri.HTML5(open(link))
     topic.css('li.postbitlegacy').first
   end
 
-  def fetch_and_save_all
-    @promotions = fetch_promotion_links.map do |link|
-      link = convert_link(link)
-      puts link
-      post = fetch_post(link[:href])
-      build_and_create_promotion(link, post)
-    end
-    promotions_not_found(self.class.to_s) if @promotions.empty?
-  end
 
   def build_promotion(link, post)
     {

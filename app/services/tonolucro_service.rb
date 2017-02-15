@@ -17,16 +17,6 @@ class TonolucroService < ApplicationService
     promotion.css('.content-left-back').first
   end
 
-  def fetch_and_save_all
-    @promotions = fetch_promotion_links.map do |link|
-      link = convert_link(link)
-      puts link
-      promotion = fetch_promotion(link[:href])
-      build_and_create_promotion(link, promotion)
-    end
-    promotions_not_found(self.class.to_s) if @promotions.empty?
-  end
-
   def build_promotion(link, promotion)
     {
       origin: 'tonolucro', promoter: 'tonolucro',

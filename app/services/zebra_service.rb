@@ -17,16 +17,6 @@ class ZebraService < ApplicationService
     promotion.css('.product').first
   end
 
-  def fetch_and_save_all
-    @promotions = fetch_promotion_links.map do |link|
-      link_hash = convert_link(link)
-      puts link_hash[:href]
-      promotion = fetch_promotion(link_hash[:href])
-      build_and_create_promotion(link_hash, promotion)
-    end
-    promotions_not_found(self.class.to_s) if @promotions.empty?
-  end
-
   def build_promotion(link, promotion)
     {
       origin: 'zebraurbana', promoter: 'zebraurbana',
