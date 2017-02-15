@@ -1,12 +1,6 @@
 ### Promobot
 
-[![Code Climate](https://codeclimate.com/github/luizcarvalho/promobot/badges/gpa.svg)](https://codeclimate.com/github/luizcarvalho/promobot)
-
-[![Test Coverage](https://codeclimate.com/github/luizcarvalho/promobot/badges/coverage.svg)](https://codeclimate.com/github/luizcarvalho/promobot/coverage)
-
-[![Issue Count](https://codeclimate.com/github/luizcarvalho/promobot/badges/issue_count.svg)](https://codeclimate.com/github/luizcarvalho/promobot)
-
-[![Issue Count](https://codeclimate.com/github/luizcarvalho/promobot/badges/issue_count.svg)](https://codeclimate.com/github/luizcarvalho/promobot)
+[![Code Climate](https://codeclimate.com/github/luizcarvalho/promobot/badges/gpa.svg)](https://codeclimate.com/github/luizcarvalho/promobot) [![Test Coverage](https://codeclimate.com/github/luizcarvalho/promobot/badges/coverage.svg)](https://codeclimate.com/github/luizcarvalho/promobot/coverage) [![Issue Count](https://codeclimate.com/github/luizcarvalho/promobot/badges/issue_count.svg)](https://codeclimate.com/github/luizcarvalho/promobot)
 
 ![Promobot cover](http://res.cloudinary.com/drlko5ghb/image/upload/v1487119511/cover-lite_nqmdjy.jpg "Bot para quem gosta de economizar")
 
