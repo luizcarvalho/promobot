@@ -32,7 +32,7 @@ class PromotionBot
   def format_element_generic(promotion)
     {
       'title': promotion.title,
-      'item_url': promotion.url,
+      'item_url': "#{promotion.url}?origin=promobot",
       'image_url': promotion.image,
       'subtitle': promotion.resume,
       'buttons': [element_buttons(promotion)]
@@ -42,7 +42,7 @@ class PromotionBot
   def element_buttons(promotion)
     {
       'type': 'web_url',
-      'url': promotion.url,
+      'url': "#{promotion.url}?origin=promobot",
       'title': 'Ver no site'
     }
   end
