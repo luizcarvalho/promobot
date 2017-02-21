@@ -52,7 +52,7 @@ class PromotionBot
   def nothing_found_message
     {
       text: "😥 Desculpe! não consegui achar nada.
-      \n Já tentou buscar \"Delícia\" ou \"Comida\"? sim eu adoro comer :P"
+      \n Já tentou buscar \"promoção para carro\" ou \"comida barata\"? sim eu adoro comer :P"
     }
   end
 end

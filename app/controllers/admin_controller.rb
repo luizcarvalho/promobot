@@ -1,6 +1,6 @@
 require 'rails/application_controller'
-require_relative '../helpers/admin_helper'
 class AdminController < Rails::ApplicationController
+  include AdminHelper
   def index
     @q = Promotion.search(params[:q])
     @promotions = @q.result(distinct: true).page(params[:page]).per(30)
